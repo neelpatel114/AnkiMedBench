@@ -1,17 +1,20 @@
-# AnkiMedBench
+# AnkiMedBench: Evaluating Hierarchical Medical Knowledge in Language Model Embeddings
 
-A comprehensive benchmark suite for evaluating medical embedding models using Anki flashcard-based datasets.
+A comprehensive benchmark for evaluating how well language models preserve hierarchical medical knowledge structures.
 
 ## Overview
 
-AnkiMedBench is a benchmarking framework designed to evaluate the performance of various embedding models on medical domain tasks. The benchmark uses medically curated Anki flashcards as the foundation for creating challenging evaluation datasets across multiple biomedical NLP tasks.
+AnkiMedBench evaluates whether embedding models preserve the taxonomic structure essential for clinical reasoning. Built from 16,512 medical flashcards spanning 6 hierarchy levels—from 16 broad specialties to 672 specific diseases—it measures both exact classification (Flat F1) and hierarchical coherence (Hierarchical F1).
+
+Despite 90%+ accuracy on medical benchmarks, models often fail at hierarchical navigation critical for clinical practice. AnkiMedBench reveals these invisible limitations by testing whether models can traverse diagnostic hierarchies: from chest pain → cardiovascular pathology → myocardial infarction → specific STEMI types.
 
 ### Key Features
 
-- **Multiple Benchmark Tasks**: BIOSSES, SciTail, and PubMedQA
-- **Model Agnostic**: Supports BERT, ModernBERT, Gemma, Llama, and Qwen families
-- **Comprehensive Analysis**: Statistical analysis and visualization tools included
-- **Reproducible**: Detailed instructions for dataset preparation and evaluation
+- **Hierarchical Evaluation**: Dual-metric approach (Flat F1 + Hierarchical F1) reveals model quality
+- **16,512 Medical Flashcards**: Organized across 6 hierarchy levels from specialties to specific conditions
+- **30 Models Tested**: BERT, ModernBERT, Gemma, Llama, Qwen families evaluated
+- **Clinical Relevance**: Tests taxonomic navigation essential for diagnostic reasoning
+- **Reproducible Framework**: Detailed instructions for dataset preparation and evaluation
 
 ## Supported Models
 
@@ -151,13 +154,26 @@ bert-base-uncased,BIOSSES,pearson_correlation,0.85,2024-01-01
 If you use AnkiMedBench in your research, please cite:
 
 ```bibtex
-@misc{ankimedbench2024,
-  title={AnkiMedBench: A Benchmark for Medical Embedding Models},
-  author={Your Name},
-  year={2024},
+@mastersthesis{patel2025ankimedbench,
+  title={AnkiMedBench: Evaluating Hierarchical Medical Knowledge in Language Model Embeddings},
+  author={Patel, Neel},
+  year={2025},
+  school={University of Nevada, Las Vegas},
+  type={Master's Thesis},
   url={https://github.com/neelpatel114/AnkiMedBench}
 }
 ```
+
+## Research Context
+
+Current medical benchmarks test isolated factual recall but miss hierarchical reasoning. AnkiMedBench addresses this gap by:
+
+- **Measuring Taxonomic Structure**: Tests whether models preserve diagnostic category hierarchies
+- **Dual-Metric Approach**: Flat F1 for precision, Hierarchical F1 for structural coherence
+- **Clinical Validity**: Based on flashcards from medical licensing exam preparation
+- **Quality Detection**: High-quality models show minimal metric divergence; low-quality show large gaps
+
+**Key Finding**: Our best model outperformed the worst by 2.6× at fine-grained classification. Fine-tuning on 26 medical textbooks produced minimal hierarchical improvement, demonstrating that standard benchmark performance does not predict hierarchical capability.
 
 ## Contributing
 
