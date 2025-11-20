@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data files (DO NOT COMMIT COPYRIGHTED CONTENT)
+data/anki_cards/
+data/biosses/
+data/scitail/
+data/pubmedqa/
+*.txt
+*.csv
+*.json
+!data/sample/README.md
+!requirements.txt
+
+# Results and outputs
+results/
+analysis/
+figures/
+*.png
+*.pdf
+*.jpg
+
+# Models
+models/
+checkpoints/
+*.bin
+*.pt
+*.pth
+*.safetensors
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+*.cache
+
+# HuggingFace
+.huggingface/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
